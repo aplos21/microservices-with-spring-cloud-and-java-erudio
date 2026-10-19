@@ -44,11 +44,6 @@
 			</plugin>
 		</plugins>
 	</build>
-	<repositories>
-		<repository>
 
-		</repository>
-
-	</repositories>
 
 </project>
