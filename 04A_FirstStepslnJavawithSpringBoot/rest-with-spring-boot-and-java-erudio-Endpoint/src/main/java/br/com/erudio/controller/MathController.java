@@ -31,4 +31,60 @@ public class MathController {
         return (number.matches("[-+]?[0-9]*\\.?[0-9]+"));
 
     }
+    // http://localhost:8080/math/subtraction/3/5
+
+    @RequestMapping(value = "/subtraction/{numberOne}/{numberTwo}", method = RequestMethod.GET)
+    public Double subtraction(
+            @PathVariable(value = "numberOne") String numberOne,
+            @PathVariable(value = "numberTwo") String numberTwo
+    ) throws Exception {
+        if(!isNumeric(numberOne) || !isNumeric(numberTwo)) throw new UnsupportedMathOperationException("Please set a numeric value!");
+        return covertToDouble(numberOne) - covertToDouble(numberTwo);
+    }
+
+// http://localhost:8080/math/multiplication/3/5
+
+
+    @RequestMapping(value = "/multiplication/{numberOne}/{numberTwo}", method = RequestMethod.GET)
+    public Double multiplication(
+            @PathVariable(value = "numberOne") String numberOne,
+            @PathVariable(value = "numberTwo") String numberTwo
+    ) throws Exception {
+        if(!isNumeric(numberOne) || !isNumeric(numberTwo)) throw new UnsupportedMathOperationException("Please set a numeric value!");
+        return covertToDouble(numberOne) * covertToDouble(numberTwo);
+    }
+    // http://localhost:8080/math/division/3/5
+    @RequestMapping(value = "/division/{numberOne}/{numberTwo}", method = RequestMethod.GET)
+    public Double division(
+            @PathVariable(value = "numberOne") String numberOne,
+            @PathVariable(value = "numberTwo") String numberTwo
+    ) throws Exception {
+        if(!isNumeric(numberOne) || !isNumeric(numberTwo)) throw new UnsupportedMathOperationException("Please set a numeric value!");
+        return covertToDouble(numberOne) / covertToDouble(numberTwo);
+    }
+
+    // http://localhost:8080/math/mean/3/5
+    @RequestMapping(value = "/mean/{numberOne}/{numberTwo}", method = RequestMethod.GET)
+    public Double mean(
+            @PathVariable(value = "numberOne") String numberOne,
+            @PathVariable(value = "numberTwo") String numberTwo
+    ) throws Exception {
+        if(!isNumeric(numberOne) || !isNumeric(numberTwo)) throw new UnsupportedMathOperationException("Please set a numeric value!");
+        return (covertToDouble(numberOne) +covertToDouble(numberTwo))/2;
+    }
+    // http://localhost:8080/math/squareRoot/3/5
+    @RequestMapping(value = "/squareRoot/{numberOne}/{numberTwo}", method = RequestMethod.GET)
+    public Double squareRoot(
+            @PathVariable(value = "numberOne") String numberOne,
+            @PathVariable(value = "numberTwo") String numberTwo
+    ) throws Exception {
+        if(!isNumeric(numberOne) || !isNumeric(numberTwo)) throw new UnsupportedMathOperationException("Please set a numeric value!");
+        return Math.sqrt(covertToDouble(numberOne) + covertToDouble(numberTwo));
+    }
+
 }
+
+
+
+
+
